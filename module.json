@@ -1,0 +1,112 @@
+{
+  "name": "zandora-lib",
+  "title": "Zandora Library",
+  "description": "This module provides content specific to the Zandora Legends Campaign Setting. In addition, it provides api access to other Zandore modules.",
+  "author": "Bospone – Bospone#9563",
+  "authors": [
+    {
+      "name": "Bospone – Bospone#9563",
+      "url": "https://www.patreon.com/ZandoraLegends"
+    }
+  ],
+  "version": "1.0.0",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9.249",
+  "url": "https://github.com/darkwon/rename_this",
+  "manifest": "https://raw.githubusercontent.com/darkwon/zandora-lib/main/module.json",
+  "download": "https://github.com/darkwon/rename_this/releases/download/v1.0.0/v1.0.0.zip",
+  "readme": "https://github.com/darkwon/rename_this/blob/main/README.md",
+  "changelog": "https://github.com/darkwon/rename_this/blob/main/changelog.md",
+  "bugs": "https://github.com/darkwon/rename_this/issues",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "esmodules": ["./scripts/zandora-lib.js"],
+
+  "styles": [
+    "./css/zandora-lib.css"
+  ],
+  "packs":[
+    {
+      "name": "zandora-bestiary",
+      "label": "Zandora Bestiary",
+      "system": "dnd5e",
+      "path": "./packs/zandora-bestiary.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "zandora-heroes",
+      "label": "Zandora Heroes",
+      "system": "dnd5e",
+      "path": "./packs/zandora-heroes.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "zandora-items",
+      "label": "Zandora Items",
+      "system": "dnd5e",
+      "path": "./packs/zandora-items.db",
+      "entity": "Item"
+    },
+    {
+      "name": "zandora-classes",
+      "label": "Zandora Classes",
+      "system": "dnd5e",
+      "path": "./packs/zandora-classes.db",
+      "entity": "Item"
+    },
+    {
+      "name": "zandora-class-feature",
+      "label": "Zandora Class Features",
+      "system": "dnd5e",
+      "path": "./packs/zandora-class-feature.db",
+      "entity": "Item"
+    },
+    {
+      "name": "zandora-racial-features",
+      "label": "Zandora Racial Features",
+      "system": "dnd5e",
+      "path": "./packs/zandora-racial-features",
+      "entity": "Item"
+    },
+    {
+      "name": "zandora-spells",
+      "label": "Zandora Spells",
+      "system": "dnd5e",
+      "path": "./packs/zandora-spells.db",
+      "entity": "Item"
+    },
+    {
+      "name": "zandora-journals",
+      "label": "Zandora Journals",
+      "system": "dnd5e",
+      "path": "./packs/zandora-journels.db",
+      "entity": "JournalEntry"
+    },
+    {
+      "name": "zandora-macros",
+      "label": "Zandora Macros",
+      "system": "dnd5e",
+      "path": "./packs/zandora-macros.db",
+      "entity": "Macro"
+    },
+    {
+      "name": "zandora-rolltable",
+      "label": "Zandora Roll Tables",
+      "system": "dnd5e",
+      "path": "./packs/zandora-rolltable.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "zandora-scenes",
+      "label": "Zandora Scenes",
+      "system": "dnd5e",
+      "path": "./packs/zandora-scenes.db",
+      "entity": "Scene"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "zandora-lib": {
+        "settings" :{
+            "xp-style" : "XP Awards",
+            "xp-style-hint" : "Default is by challenge rating and questing XP. Session XP is awarded at end of game while milestone XP is awarded at major story points such as killing a boss or completing a quest.",
+            "xp-styles" :{
+                "xp-encounter" : "Default",
+                "xp-session" : "Session",
+                "xp-milestone" : "Milestone"
+            }
+        },
+        "awarded-xp" : "Awarded XP",
+        "awarded-to" : "Awarded to",
+        "levelup" : {
+			"title": "Levelup",
+			"desc": "The following characters reached the next level"
+		}
+    }
+}
