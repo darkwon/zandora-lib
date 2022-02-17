@@ -7,11 +7,11 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/add-badges@v1
+      - uses: wow-actions/add-badges@v1.0.1
         env:
-          repo_url: ${{ https://github.com/darkwon/zandora-lib }}
+          repo_url: ${{ https://github.com/darkwon/zandora-lib/readme.md }}
           repo_name: ${{ zandora-lib }}
-          repo_owner: ${{ darkwon}}
+          repo_owner: ${{ darkwon }}
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           badges: |
