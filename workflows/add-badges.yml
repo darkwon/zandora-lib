@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: wow-actions/add-badges@v1
         env:
-          repo_url: ${{ github.event.repository.html_url }}
-          repo_name: ${{ github.event.repository.name }}
-          repo_owner: ${{ github.event.repository.owner.login }}
+          repo_url: ${{ https://github.com/darkwon/zandora-lib }}
+          repo_name: ${{ zandora-lib }}
+          repo_owner: ${{ darkwon}}
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           badges: |
