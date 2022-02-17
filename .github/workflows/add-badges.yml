@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: wow-actions/add-badges@v1.0.1
         env:
-          repo_url: ${{ https://github.com/darkwon/zandora-lib/readme.md }}
+          repo_url: ${{ https://github.com/darkwon/zandora-lib }}
           repo_name: ${{ zandora-lib }}
           repo_owner: ${{ darkwon }}
         with:
