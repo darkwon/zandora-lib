@@ -12,6 +12,7 @@
   "version": "1.0.0",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9.249",
+  "system": "dnd5e",
   "url": "https://github.com/darkwon/zandora-lib",
   "manifest": "https://raw.githubusercontent.com/darkwon/zandora-lib/main/module.json",
   "download": "https://github.com/darkwon/zandora-lib/releases/download/v1.0.0/v1.0.0.zip",
