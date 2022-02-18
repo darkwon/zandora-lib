@@ -8,7 +8,7 @@
 </div>
 <h2>Description</h2>
 <div>
-    The Zandora Library contains tools for the dnd5e game system that other modules can leverage using the built-in API. 
+    The Zandora Library contains tools for the dnd5e game system and foundry VTT that other modules can leverage using the built-in API. All options will be configurable within the module settings
 </div>
 <h2>Current Functions</h2>
 <div>
@@ -25,9 +25,31 @@
 <h2>Design Goals</h2>
 <div>
 <ul>
-    <li>Combat<li>
+    <li>Library Functions</li>
         <ul>
-            <li>Weapon Speed Initiative: This will prompt players for their actions<li>
+            <li>Import / Export option for the Zandora Library subsystem settings.</li>
+        </ul>
+    <li>5e Variant Rules<li>
+        <ul>
+            <li>Speed Factor Iniative: This will prompt players for their actions<li>
+            <li>Mana: Enable the use of mana or spell points<li>
+            <li>Slow Natural Healing: Extends the dnd5e system for Rest Variant. Characters use Hit Dice at end of long rest, instead of getting all health back<li>
+        </ul>
+    <li>Foundry QoL Features<li>
+        <ul>
+            <li>More Hot Bars: Extend the hot bars to allow for two or more bars open<li>
+            <li>Utility Bar: Create a small bar next to hotbar with additional features<li>
+                <ul>
+                    <li>Bags: Create drag and drop bags next to hot bar.<li>
+                    <li>Crafting: Creating a crafting interface with configurable crafting styles (blacksmithing, enchanting, ex) with configurable crafting recipes (wand of magic missile, Plate armor, potion of heroism, ex).<li>
+                    <li>Achievements: Create an achievements interface linked to the player.</li>
+                    <li>Renown: Create a configuratble renown interface, which tracks player status with world factions and/or organizations and displays benefits if any the character receives.</li>
+                </ul>
+                <li>Party Frame: Migrate party frame module or route its functions here and have it showup as players login or logout instead of using tokens on the canvas.
+                    <ul>
+                        <li>Show Active buffs in the party frame with hoverable tooltips.</li>
+                    </ul>
+                </li>
         </ul>
 </ul>
 </div>
