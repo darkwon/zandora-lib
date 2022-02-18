@@ -9,7 +9,9 @@
 <h2>Description</h2>
 <div>
     The Zandora Library contains tools for the dnd5e game system that other modules can leverage using the built-in API. 
-
+</div>
+<h2>Current Functions</h2>
+<div>
 <ul>
     <li>Award XP
         <ul>
@@ -18,7 +20,15 @@
             <li>Milestone: XP granted at major turning points</li>
         </ul>
     </li>
-    <li></li>
+</ul>
+</div>
+<h2>Design Goals</h2>
+<div>
+<ul>
+    <li>Combat<li>
+        <ul>
+            <li>Weapon Speed Initiative: This will prompt players for their actions<li>
+        </ul>
 </ul>
 </div>
 
