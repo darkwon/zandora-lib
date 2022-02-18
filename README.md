@@ -38,17 +38,23 @@
         </ul>
     <li>Foundry QoL Features<li>
         <ul>
-            <li>More Hot Bars: Extend the hot bars to allow for two or more bars open</li>
+            <li>Hot Bar
+                <ul>
+                    <li>More bars: Create option to display more than  one bar at a time on the screen.</li>
+                    <li>Tooltip: Extend tool tip to display more information about the item on the hotbar.</li>
+                </ul>
+            </li>
             <li>Utility Bar: Create a small bar next to hotbar with additional features</li>
                 <ul>
-                    <li>Bags: Create drag and drop bags next to hot bar.<li>
+                    <li>Bags: Create drag and drop bags next to hot bar.</li>
                     <li>Crafting: Creating a crafting interface with configurable crafting styles (blacksmithing, enchanting, ex) with configurable crafting recipes (wand of magic missile, Plate armor, potion of heroism, ex).</li>
                     <li>Achievements: Create an achievements interface linked to the player.</li>
                     <li>Renown: Create a configuratble renown interface, which tracks player status with world factions and/or organizations and displays benefits if any the character receives.</li>
                 </ul>
-                <li>Party Frame: Migrate party frame module or route its functions here and have it showup as players login or logout instead of using tokens on the canvas.
+                <li><a href="https://github.com/darkwon/zandora-party-frame">Zandora Party Frame:</a> Migrate party frame module or route its functions here and have it showup as players login or logout instead of using tokens on the canvas.
                     <ul>
                         <li>Show Active buffs in the party frame with hoverable tooltips.</li>
+                        <li>Change right mouse click from open player sheet, to a context menu with options.</li>
                     </ul>
                 </li>
         </ul>
