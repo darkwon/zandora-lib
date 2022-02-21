@@ -1,3 +1,4 @@
+
 export function XP_session(level){
 	switch (level){
 		default:
@@ -44,6 +45,39 @@ export function XP_session(level){
 	}
 }
 
+export default class XPAward{
+	/**
+     * Render dialog handler
+     * @param {*} app 
+     * @param {*} html 
+     * @param {*} data 
+     */
+	static renderDialog(app, html, data) {
+		console.log('XPaward: render checkbox')
+        const dialogContent = html.find("div.dialog-content");
+        const yesButton = html.find("button[data-button='yes']");
+        const xpCheckboxGroup = $(`<div class="form-group"><label class="xp-checkbox">Award XP? <input type="checkbox" name="award-xp"></label></div>`);
+
+        dialogContent.after(xpCheckboxGroup);
+		app.setPosition(mergeObject(app.position, {height: app.position.height + 30}));
+
+		yesButton.on("click", event => {
+            const xpCheckbox = xpCheckboxGroup.find("input");
+
+            // Start custom flow if giving XP, otherwise just delete combat
+            if (xpCheckbox.is(":checked")) {
+
+            }
+        });
+	}
+	/**
+     * Gives XP to the living PCs in the turn tracker based on enemies killed
+     * @param {Object} combat -- the combat instance being deleted
+     */
+	static async sessionXP(combat) {
+		
+	}
+}
 export function XPTypes(option){
     switch (option){
         default:
@@ -70,7 +104,7 @@ export function XPTypes(option){
                 [19, 30000],
                 [20, 40000],
             ]
-        case "perKill":
+        case "default":
 			return [
 				["1/8", 25],
 				[1/8, 25],
