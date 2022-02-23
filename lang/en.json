@@ -14,6 +14,12 @@
         "levelup" : {
 			"title": "Levelup",
 			"desc": "The following characters reached the next level"
-		}
+		},
+        "combat" : {
+            "initiative" : {
+                "speed-init": "Speed Factor Initiative",
+                "speed-hint": "Enables speed factor initiative"
+            }
+        }
     }
 }

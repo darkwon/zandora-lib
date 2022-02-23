@@ -1,7 +1,9 @@
 // Store access to all reusable module settings here for reference
 export const SETTINGS = {
   module: {
-    name: 'zandora-lib'
+    name: 'zandora-lib',
+    title: 'Zandora Library',
+    path: 'modules/zandora-lib'
   },
   XPaward: {
     default: 'default',
@@ -25,5 +27,13 @@ export function registerSettings() {
           "session": "zandora-lib.settings.xp-styles.xp-session",
           "milestone": "zandora-lib.settings.xp-styles.xp-milestone"
         }
-      });
+    });
+    game.settings.register(SETTINGS.module.name, "SpeedFactorInitiative", {
+      name: "zandora-lib.combat.initiative.speed-init",
+      hint: "zandora-lib.combat.initiative.speed-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: Boolean
+    });
 }

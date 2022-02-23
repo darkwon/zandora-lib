@@ -21,6 +21,11 @@
             <li>Milestone: XP granted at major turning points</li>
         </ul>
     </li>
+    <li>5e Variant Rules
+        <ul>
+            <li>Speed Factor Iniative (current rerolls at start of round)</li>
+        </ul>    
+    </li>
 </ul>
 </div>
 <h2>Design Goals</h2>
@@ -32,7 +37,7 @@
         </ul>
     <li>5e Variant Rules</li>
         <ul>
-            <li>Speed Factor Iniative: This will prompt players for their actions</li>
+            <li>Speed Factor Iniative: Prompt players for their actions</li>
             <li>Mana: Enable the use of mana or spell points</li>
             <li>Slow Natural Healing: Extends the dnd5e system for Rest Variant. Characters use Hit Dice at end of long rest, instead of getting all health back</li>
         </ul>

@@ -1,4 +1,4 @@
-
+import {registerSettings, SETTINGS} from "../apps/settings.js";
 export function XP_session(level){
 	switch (level){
 		default:
@@ -52,8 +52,8 @@ export default class XPAward{
      * @param {*} html 
      * @param {*} data 
      */
-	static renderDialog(app, html, data) {
-		console.log('XPaward: render checkbox')
+	static _onrenderDialog(app, html, data) {
+		//console.log('XPaward: render checkbox')
         const dialogContent = html.find("div.dialog-content");
         const yesButton = html.find("button[data-button='yes']");
         const xpCheckboxGroup = $(`<div class="form-group"><label class="xp-checkbox">Award XP? <input type="checkbox" name="award-xp"></label></div>`);
@@ -66,7 +66,7 @@ export default class XPAward{
 
             // Start custom flow if giving XP, otherwise just delete combat
             if (xpCheckbox.is(":checked")) {
-
+				XPAward._giveXP(combat);
             }
         });
 	}
@@ -74,8 +74,56 @@ export default class XPAward{
      * Gives XP to the living PCs in the turn tracker based on enemies killed
      * @param {Object} combat -- the combat instance being deleted
      */
-	static async sessionXP(combat) {
-		
+	static async _giveXP(combat) {
+		//const xpModifier = Sidekick.getSetting(SETTING_KEYS.giveXP.modifier);
+		console.log(combat)
+        const hostiles = [];
+        const friendlies = [];
+        const defaultSelectedFriendlies = [];
+
+        for (const turn of combat.turns) {
+            const turnData = {
+                actor: turn.actor,
+                token: turn.token,
+                name: turn.name,
+                img: turn.img
+            };
+
+            switch (turn.token.data.disposition) {
+                case -1:
+                    hostiles.push(turnData);
+                    continue;
+                
+                case 1:
+                    friendlies.push(turnData);
+                    const deselectByDefault = turn.actor.getFlag(NAME, FLAGS.giveXP.deselectByDefault);
+
+                    if (!deselectByDefault) defaultSelectedFriendlies.push(turnData);
+                    continue;
+
+                default:
+                    continue;
+            }
+        }
+
+        const combatData = { combat, xpModifier, hostiles, friendlies, defaultSelectedFriendlies };
+        const content = await renderTemplate(`${SETTINGS.module.path}/templates/give-xp-dialog.hbs`, combatData);
+
+        new Dialog({
+            title: "XP",
+            content,
+            render: html => this._distributeDialogRender(html),
+            buttons: {
+                okay: {
+                    label: "OK",
+                    callback: html => this._distributeXP(html, combatData)
+                },
+                cancel: {
+                    label: "Cancel",
+                    callback: () => {}
+                }
+            }
+        }).render(true);		
 	}
 }
 export function XPTypes(option){

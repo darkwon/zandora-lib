@@ -23,11 +23,6 @@ export default class zandoralib {
         }
     }
 
-    static getPcs() {
-        // returns all actors that are of type character and not NPC then maps data from json to object
-        return game.actors.filter(actor => actor.data.type === "character").map(actor =>{return {id: actor.id, name: actor.data.name, image: actor.data.img}})
-    }
-
     static awardXP(){
         const players = this.getActivePlayers('playerOnly')
         console.log('Found these characters: ' + players)
@@ -37,7 +32,6 @@ export default class zandoralib {
         console.log(XPTypes)
         try {
             pcs.forEach(pc => {
-                //charXp = XP_session(pc.level)
                 sessionXP = XP_session(pc.level)
                 console.log(pc.name + 'is level ' + pc.level + ' and earns ' + sessionXP)
                 pc.newXp = pc.xp + sessionXP
