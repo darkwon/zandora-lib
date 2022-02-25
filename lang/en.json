@@ -18,7 +18,7 @@
         "combat" : {
             "initiative" : {
                 "speed-init": "Speed Factor Initiative",
-                "speed-hint": "Enables speed factor initiative"
+                "speed-hint": "Enables speed factor initiative which can be found in the DMG p.271"
             }
         }
     }
