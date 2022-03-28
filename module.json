@@ -31,5 +31,7 @@
   "styles": [
     "./css/zandora-lib.css"
   ],
-  "packs":[]
+  "packs":[],
+  "socket" : true,
+  "library" : false
 }

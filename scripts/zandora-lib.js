@@ -1,14 +1,14 @@
-//"use strict";
 import {registerSettings, SETTINGS} from "./apps/settings.js";
 import zandoralib from "./zandora-lib-api.js";
 import XPAward from "./apps/XPaward.js";
-import CombatTracker from "./apps/roll-initiative.js"
-import actorStats from "./apps/actor-stats.js"
+import CombatTracker from "./apps/roll-initiative.js";
+import actorStats from "./apps/actor-stats.js";
 
 // Comment out to turn off debugging
-//CONFIG.debug.hooks = true
+//config.debug.hooks = true;
 
-Hooks.on('init', () => {
+const namespace = '';
+Hooks.once('init', () => {
     // Register are library settings
     registerSettings()
     // once set up, we create our API object
@@ -26,6 +26,7 @@ Hooks.on('init', () => {
     Hooks.callAll('zandoraLibReady', game.modules.get(SETTINGS.module.name).api);
     //game.modules.get('zandora-lib')?.api?.getActivePlayers()
 });
+
 
 /* ------------------- Chat ------------------- */
 
