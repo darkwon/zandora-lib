@@ -1,0 +1,39 @@
+<div>
+    {{#with Token5e}}
+        <h2><b>{{data.name}}</b></h2><br/>
+        <b>Armor Class: </b><span>{{document._actor.data.data.attributes.ac.value}}</span><br/>
+        <b>Hit Points: </b><span>
+            {{#if document._actor.data.data.attributes.hp.temp}}
+                {{math document._actor.data.data.attributes.hp.value '+' document._actor.data.data.attributes.hp.temp}}
+            {{else}}
+                {{document._actor.data.data.attributes.hp.value}}
+            {{/if}}
+             / 
+            {{#if document._actor.data.data.attributes.hp.tempmax}}
+                {{math document._actor.data.data.attributes.hp.max '+' document._actor.data.data.attributes.hp.tempmax}}
+            {{else}}
+                {{document._actor.data.data.attributes.hp.max}}
+            {{/if}}
+            </span><br/>
+        {{#if isOwner}}
+            {{#if document._actor.data.data.skills.prc.passive}}
+                {{#unless document.type}}
+                    {{!-- Only display if not a vehicle --}}
+                    <b>Perception:</b><span>{{document._actor.data.data.skills.prc.passive}}</span><br/>
+                {{/unless}}
+            {{/if}}
+            {{#if document._actor.data.data.traits.ci.value}}
+                <b>Condition Immunities: </b>{{document._actor.data.data.traits.ci.value}} <br/>
+            {{/if}}
+            {{#if document._actor.data.data.traits.di.value}}
+                <b>Immunities: </b>{{document._actor.data.data.traits.di.value}} <br/>
+            {{/if}}                        
+            {{#if document._actor.data.data.traits.dr.value}}
+                <b>Damage Resistances: </b>{{document._actor.data.data.traits.dr.value}} <br/>
+            {{/if}}
+            {{#if document._actor.data.data.traits.dv.value}}
+                <b>Damage Vulnerabilities: </b>{{document._actor.data.data.traits.dv.value}} <br/>
+            {{/if}}            
+        {{/if}}
+    {{/with}}
+</div>

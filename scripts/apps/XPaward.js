@@ -1,4 +1,4 @@
-import {registerSettings, SETTINGS} from "../apps/settings.js";
+//import {registerSettings, SETTINGS} from "../apps/settings.js";
 export function XP_session(level){
 	switch (level){
 		default:

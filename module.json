@@ -11,7 +11,7 @@
   ],
   "version": "1.0.0",
   "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9.249",
+  "compatibleCoreVersion": "9.255",
   "system": "dnd5e",
   "url": "https://github.com/darkwon/zandora-lib",
   "manifest": "https://raw.githubusercontent.com/darkwon/zandora-lib/main/module.json",
@@ -26,7 +26,7 @@
       "path": "lang/en.json"
     }
   ],
-  "esmodules": ["./scripts/zandora-lib.js"],
+  "esmodules": ["main.js"],
 
   "styles": [
     "./css/zandora-lib.css"

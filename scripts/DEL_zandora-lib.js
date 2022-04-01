@@ -1,8 +1,9 @@
-import {registerSettings, SETTINGS} from "./apps/settings.js";
+//import {registerSettings, SETTINGS} from "./apps/settings.js";
 import zandoralib from "./zandora-lib-api.js";
 import XPAward from "./apps/XPaward.js";
 import CombatTracker from "./apps/roll-initiative.js";
 import actorStats from "./apps/actor-stats.js";
+//import libSettings from "../settings/libsettings.js";
 
 // Comment out to turn off debugging
 //config.debug.hooks = true;
@@ -10,20 +11,20 @@ import actorStats from "./apps/actor-stats.js";
 const namespace = '';
 Hooks.once('init', () => {
     // Register are library settings
-    registerSettings()
+    //registerSettings()
     // once set up, we create our API object
-    game.modules.get(SETTINGS.module.name).api = {
+    //game.modules.get(SETTINGS.module.name).api = {
         // Expose API functions
-        getActivePlayers: zandoralib.getActivePlayers,
-        getActors: actorStats.getPcs,
-        awardXP: zandoralib.awardXP,
-        preparePcData: zandoralib.preparePcData,
-        _rollInitative: CombatTracker._rollInitative
-    };
+    //    getActivePlayers: zandoralib.getActivePlayers,
+    //    getActors: actorStats.getPcs,
+    //    awardXP: zandoralib.awardXP,
+    //    preparePcData: zandoralib.preparePcData,
+    //    _rollInitative: CombatTracker._rollInitative
+    //};
 
     // now that we've created our API, inform other modules we are ready
     // provide a reference to the module api as the hook arguments for good measure
-    Hooks.callAll('zandoraLibReady', game.modules.get(SETTINGS.module.name).api);
+    //Hooks.callAll('zandoraLibReady', game.modules.get(SETTINGS.module.name).api);
     //game.modules.get('zandora-lib')?.api?.getActivePlayers()
 });
 
