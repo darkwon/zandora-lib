@@ -9,7 +9,7 @@ import actorStats from "./scripts/apps/actor-stats.js";
 import XPAward from "./scripts/apps/XPaward.js";
 import CombatTracker from "./scripts/apps/roll-initiative.js";
 import ToolTip from "./components/za-tooltip/za_tooltip.js";
-
+import LibHooks from "./components/hooks/hooks.js"
 const namespace = 'zandora-lib';
 const settings = {
   librarySettings:new libSettings(namespace),
@@ -33,6 +33,7 @@ Hooks.once('init', () => {
   // provide a reference to the module api as the hook arguments for good measure
   Hooks.callAll('zandoraLibReady', game.modules.get(namespace).api);
 
+  // Define our Handlebars helpers
   Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     lvalue = parseFloat(lvalue);
     rvalue = parseFloat(rvalue);
@@ -45,6 +46,8 @@ Hooks.once('init', () => {
         "%": lvalue % rvalue
     }[operator];
   });
+
+
 });
 
 Hooks.once('setup', () => {
@@ -62,6 +65,8 @@ Hooks.once('ready', () => {
   //TO-DO: MODULE READY HOOK
   Module.ready();
   UI.ready();
+  // Create custom hooks
+  LibHooks.register();
   //UI._backpackHotbar.actorId = Module.currentUserCharacter?._id;
 });
 
@@ -129,15 +134,21 @@ Hooks.on("deleteCombatant", (combatant, options, userId) => {
 
 
 /* ------------------ Token ------------------ */
-Hooks.on("hoverToken", (token, options, userId) => {
+Hooks.on("hoverToken", (token, options, evt) => {
 
-  if (options == false){
-    ToolTip.delete();
+  // ---- Add Tooltips to the user interface if enabled ---
+  let setting = game.settings.get(namespace, 'tooltips')
+
+  if (setting == true){
+    if (options == false){
+      ToolTip.delete('za-tooltip');
+    }
+
+    if(options == true){
+      ToolTip.create(token, '','za-tooltip', 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs');
+    }    
   }
 
-  if(options == true){
-    ToolTip.create(token, 'Token5e');
-  }
 
 });
 // if I need to do something as soon as the module is ready

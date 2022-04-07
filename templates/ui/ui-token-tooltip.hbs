@@ -1,5 +1,5 @@
 <div>
-    {{#with Token5e}}
+    {{#with objects}}
         <h2><b>{{data.name}}</b></h2><br/>
         <b>Armor Class: </b><span>{{document._actor.data.data.attributes.ac.value}}</span><br/>
         <b>Hit Points: </b><span>
@@ -19,7 +19,7 @@
             {{#if document._actor.data.data.skills.prc.passive}}
                 {{#unless document.type}}
                     {{!-- Only display if not a vehicle --}}
-                    <b>Perception:</b><span>{{document._actor.data.data.skills.prc.passive}}</span><br/>
+                    <b>Perception: </b><span>{{document._actor.data.data.skills.prc.passive}}</span><br/>
                 {{/unless}}
             {{/if}}
             {{#if document._actor.data.data.traits.ci.value}}

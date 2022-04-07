@@ -28,6 +28,17 @@ const settings = [
       type: Boolean
     }
   },
+  {
+    name:'tooltips',
+    config:{
+      name: "zandora-lib.ui.tooltips.tooltip-name",
+      hint: "zandora-lib.ui.tooltips.tooltip-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: Boolean
+    }
+  },
 ]
 
 export default class libSettings extends Settings {
