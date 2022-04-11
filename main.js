@@ -46,8 +46,6 @@ Hooks.once('init', () => {
         "%": lvalue % rvalue
     }[operator];
   });
-
-
 });
 
 Hooks.once('setup', () => {
@@ -67,6 +65,7 @@ Hooks.once('ready', () => {
   UI.ready();
   // Create custom hooks
   LibHooks.register();
+  
   //UI._backpackHotbar.actorId = Module.currentUserCharacter?._id;
 });
 
@@ -135,17 +134,16 @@ Hooks.on("deleteCombatant", (combatant, options, userId) => {
 
 /* ------------------ Token ------------------ */
 Hooks.on("hoverToken", (token, options, evt) => {
+  const elem = document.getElementById('board');
 
-  // ---- Add Tooltips to the user interface if enabled ---
   let setting = game.settings.get(namespace, 'tooltips')
-
   if (setting == true){
     if (options == false){
-      ToolTip.delete('za-tooltip');
+      ToolTip.delete('za-tooltip-default');
     }
 
     if(options == true){
-      ToolTip.create(token, '','za-tooltip', 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs');
+      ToolTip.create(token, 'board','za-tooltip-default', 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs');
     }    
   }
 
