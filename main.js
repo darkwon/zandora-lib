@@ -149,6 +149,11 @@ Hooks.on("hoverToken", (token, options, evt) => {
 
 
 });
+
+/* ------------------ ActionBar Hooks ------------------ */
+Hooks.on("actionHover", (macro) => {
+  console.log('Our first hook')
+});
 // if I need to do something as soon as the module is ready
 //Hooks.on('zandoraLibReady', (api) => {
     // do what I need with their api
