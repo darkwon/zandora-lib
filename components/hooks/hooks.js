@@ -1,11 +1,12 @@
 export default class LibHooks extends Hooks{
+    static on
     /**
     * @param {string} html -   Optional parameter, not yet used
     */   
-   static register(html){
-       hookRollMode();
-       hookActionMacro();
-   }
+    static register(html){
+        hookRollMode();
+        hookActionMacro();
+    }
 }
 
 function hookRollMode(html){
@@ -32,19 +33,9 @@ function hookActionMacro(){
         
         item.addEventListener('mouseenter', event => {
             console.log('zandora-lib: mouseenter event detected')
-            //onActionMacro;
             Hooks.callAll('actionHover', item, true);
-            //Hooks.on('actionHover', onActionMacro);
-            //hookMacro();
         })
       });
-
-      //const onMacroEnter = MouseEvent.onMouseEnter
-      //onMacroEnter.MouseEvent = ActionMacroHover;
-      //console.log('zandora-lib: render ActionMacros')
-      //console.log(ActionMacro)
-      //ActionMacroHover.onMouseEnter = onActionMacro;
-      //ActionMacro.onmouseenter = onActionMacro;
 }
 
 function hookMacro(){

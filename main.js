@@ -105,22 +105,23 @@ Hooks.once("preDeleteCombat", (combat, options, userId) => {
 
 Hooks.on("preUpdateCombat", (combat, updateData, options, userId) => {
     // reroll initiative here with options.
-    console.log('COMBAT:  next turn detected')
-    console.log(game.combat.current.round)
+    try {
+      let setting = game.settings.get(namespace, 'SpeedFactorInitiative')
+      let turn = game.combat.turn
+      let turns = game.combat.turns.length -1
+      //console.log('zandora-lib: Current turn ' + turn + ' of ' + turns)
+      if (turn == turns){
+        if (setting == true){
+          CombatTracker._rollInitative();
+        }        
+      }
+    } catch (error) {
+      console.log('zandora-lib: ' + error)
+    }
 });
 
-let round = ''
 Hooks.on("updateCombat", (combat, updateData, options, userId) => {
     console.log('COMBAT: combatant is updated')
-    let newRound = game.combat.current.round
-    let setting = game.settings.get(namespace, 'SpeedFactorInitiative')
-    if (newRound != round){
-        round = newRound
-        console.log('COMBAT: New round of combat detected. Round '+newRound);
-        if (setting == true){
-            CombatTracker._rollInitative();
-        }
-    }
 });
 
 Hooks.on("deleteCombat", (combat, options, userId) => {

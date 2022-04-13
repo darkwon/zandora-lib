@@ -1,6 +1,19 @@
 import actorStats from "./actor-stats.js";
 
-export default class CombatTracker{
+export default class CombatTracker extends Combat{
+
+    constructor(combatant,size,init){
+        this.combatant = combatant;
+        this.size = size;
+        this.init = init;
+    }
+
+    _game;
+
+    get combatant(){
+        return this.combatant;
+    }
+
     static _rollInitative(app, html, data){
         game.combat.data.combatants.forEach(combatant => {
         const stats = actorStats._getActor(combatant.data.actorId);
@@ -10,9 +23,20 @@ export default class CombatTracker{
         var rollFormula = '1d20+' + init + '+' + size;
 
         //game.combat.rollInitiative([combatant.data._id], {formula: '1d20+'+init+'+'+size,updateTurn: false, messageOptions: {rollMode: "gmroll", create: "false"}});
-        game.combat.rollInitiative([combatant.data._id], {formula: rollFormula,updateTurn: false, messageOptions: {rollMode: "gmroll", create: "false"}});
+        game.combat.rollInitiative([combatant.data._id], {formula: rollFormula, updateTurn: false, messageOptions: {rollMode: "gmroll", create: "false"}});
         });
-    this.announceRound();
+        //await new Promise(r => setTimeout(r, 1000));
+        setTimeout(function(){
+            if (game.combat.turn != 0){
+                CombatTracker.announceRound();
+                CombatTracker.combatUpdate();
+            }
+            else{
+                CombatTracker.announceRound();
+            }
+        }, 500);
+
+        //this.announceRound();
     } 
 
     static initSizeMod(combatant){
@@ -39,14 +63,32 @@ export default class CombatTracker{
             return 0;
         }
     };
+
     static announceRound(){
         // Announces the current round to chat
         let messageContent = `<hr><div style="color: black; font-size: 1.75em; font-weight: bold;">ROUND ${game.combat.round}</div><hr>`
         ChatMessage.create({content: messageContent});
     }
 
+    // Fixes the updateTurn() bug within the Foundry Combat class
+    // This can be removed when the bug is fixed.
+    static combatUpdate(){
+        console.log('za-lib: Preparing to update combatant')
+        try {
+            let turn = game.combat.turn;
+            turn = 0;
+            game.combat.update({turn}); 
+        } catch (error) {
+            console.log('za-lib: Combat Update Error....\n'+error);
+        }
+
+    }
     static popoutCombat(){
         // If setting is enabled, automatically pops the combat tab out
         ui.combat.createPopout().render(true);
+    }
+
+    combatant = (_actorID) => {
+        return actorStats._getActor(combatant.data.actorId);
     }
 }
