@@ -19,6 +19,10 @@
             "initiative" : {
                 "speed-init": "Speed Factor Initiative",
                 "speed-hint": "Enables speed factor initiative which can be found in the DMG p.271"
+            },
+            "win" : {
+                "sound" : "Combat Over Sound",
+                "sound-hint" : "Play this sound when combat has been completed, leave blank to disable sound"
             }
         },
         "ui" : {

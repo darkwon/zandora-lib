@@ -35,13 +35,6 @@ class Module {
   setup = () => {
     console.log('Module Setup');
     preloadZandora5eHandlebarsTemplates()
-    //Handlebars.registerPartial('myPartial', '{{>"modules/zandora-lib/templates/ui/ui-token-tooltip.hbs"}}');
-    //this._settings.backpack.addEventListener('setting_change', ({game, namespace, setting, value}) => {
-    //  console.log('Do something else with this data...', {
-    //    args:{game,namespace,setting,value},
-    //    currentState:this._settings.backpack.currentState
-    //  });
-    //});
   }
   ready = () => {
     console.debug('Module Ready');

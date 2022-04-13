@@ -1,19 +1,9 @@
 import actorStats from "./actor-stats.js";
 
 export default class CombatTracker extends Combat{
-
-    constructor(combatant,size,init){
-        this.combatant = combatant;
-        this.size = size;
-        this.init = init;
-    }
-
-    _game;
-
-    get combatant(){
-        return this.combatant;
-    }
-
+    /**
+     * If Speedfactor initiative is enabled, use this _rollInitiative() method instead of the default
+     */  
     static _rollInitative(app, html, data){
         game.combat.data.combatants.forEach(combatant => {
         const stats = actorStats._getActor(combatant.data.actorId);
@@ -87,8 +77,36 @@ export default class CombatTracker extends Combat{
         // If setting is enabled, automatically pops the combat tab out
         ui.combat.createPopout().render(true);
     }
+    
+    /**
+     * @param {string} Source -   The FoundryVTT/URL path to our play file
+     * @param {number} Volume - A number from 0.1 to 1.0, default is 1.
+     * @param {boolean} start - Start the sound, default is true
+     * @param {boolean} repeat -  Loop this sound, default false
+     */    
+    static playSound(Source, Volume, start, repeat){
+        try {
+            let _source = Source;
+            let _volume = Volume;
+            let _start = start;
+            let _repeat = repeat;
 
-    combatant = (_actorID) => {
-        return actorStats._getActor(combatant.data.actorId);
-    }
+            if (_source === null){
+                _source = 'sounds/drums.wav';
+            };
+            if (_volume === null){
+                _volume = 1.0;
+            };
+            if (_start === null){
+                _start = true;
+            };
+            if (_repeat === null){
+                _repeat = false;
+            };
+            AudioHelper.play({src: _source, _volume: _volume, autoplay: _start, loop: _repeat}, true);
+        } catch (error) {
+            
+        }
+        
+    };
 }

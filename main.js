@@ -105,6 +105,7 @@ Hooks.once("preDeleteCombat", (combat, options, userId) => {
 
 Hooks.on("preUpdateCombat", (combat, updateData, options, userId) => {
     // reroll initiative here with options.
+    console.log('Combat: preUpdateCombat event')
     try {
       let setting = game.settings.get(namespace, 'SpeedFactorInitiative')
       let turn = game.combat.turn
@@ -125,7 +126,13 @@ Hooks.on("updateCombat", (combat, updateData, options, userId) => {
 });
 
 Hooks.on("deleteCombat", (combat, options, userId) => {
-    console.log('COMBAT: Combat has ended')
+  console.log('COMBAT: Combat has ended')
+  let sound = game.settings.get(namespace, 'combatFinishedSound')
+  if (sound !== null){
+    CombatTracker.playSound(sound,0.8, true, false)
+  };
+  //let sound = `https://za-foundry-vtt.s3.amazonaws.com/Audio/Sound_EFX/ui/ui_combat_success.ogg`
+  //CombatTracker.playSound(sound,0.8, true, false)
 });
 
 Hooks.on("deleteCombatant", (combatant, options, userId) => {
@@ -147,8 +154,6 @@ Hooks.on("hoverToken", (token, options, evt) => {
       ToolTip.create(token, 'board','za-tooltip-default', 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs');
     }    
   }
-
-
 });
 
 /* ------------------ ActionBar Hooks ------------------ */

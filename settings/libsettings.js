@@ -29,6 +29,18 @@ const settings = [
     }
   },
   {
+    name:'combatFinishedSound',
+    config:{
+      name: "zandora-lib.combat.win.sound",
+      hint: "zandora-lib.combat.win.sound-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: String,
+      filePicker: true,
+    }
+  },  
+  {
     name:'tooltips',
     config:{
       name: "zandora-lib.ui.tooltips.tooltip-name",
