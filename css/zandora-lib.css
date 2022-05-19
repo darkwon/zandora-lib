@@ -26,3 +26,29 @@
     border-bottom-style: double;
     margin-bottom:0;
 }
+
+.za-tooltip-default span{
+    word-wrap: break-word;
+}
+
+/* -- Default Bagbar style if none is selected--*/
+.za-utilityBar-default{
+    position: relative;
+    justify-content: space-between;
+    float:right;
+    height: var(--hotbar-height);
+    pointer-events: none;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+    z-index: calc(var(--z-index-ui) + 10);
+}
+.za-utilityBar-default li{
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    list-style-type: none;
+}

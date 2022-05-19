@@ -9,7 +9,11 @@ import actorStats from "./scripts/apps/actor-stats.js";
 import XPAward from "./scripts/apps/XPaward.js";
 import CombatTracker from "./scripts/apps/roll-initiative.js";
 import ToolTip from "./components/za-tooltip/za_tooltip.js";
-import LibHooks from "./components/hooks/hooks.js"
+import LibHooks from "./components/hooks/hooks.js";
+import Factions from "./components/Factions/Factions.js";
+import soundlab from "./components/soundlab/soundlab.js";
+import ui from './ui.js';
+//import bagbar from "./components/bagbar/bagbar.js";
 const namespace = 'zandora-lib';
 const settings = {
   librarySettings:new libSettings(namespace),
@@ -18,8 +22,8 @@ const settings = {
 
 
 Hooks.once('init', () => {
+  // TO-DO INIT FUNCTIONS
   UI.init(Module.init(game, settings), UI, settings);
-
   Handlebars.registerPartial('myPartial', '{{>"modules/zandora-lib/templates/ui/ui-token-tooltip.hbs"}}');
   game.modules.get(namespace).api = {
     // Expose API functions
@@ -65,13 +69,20 @@ Hooks.once('ready', () => {
   UI.ready();
   // Create custom hooks
   LibHooks.register();
-  
-  //UI._backpackHotbar.actorId = Module.currentUserCharacter?._id;
+  Factions.database();
+  //bagbar.init();
+});
+
+Hooks.on("canvasReady", () => {
+  //if (ui.bagFrames) ui.bagFrames.render();
+
+  //Hooks.callAll(`${constants.moduleName}:afterCanvasReady`);
 });
 
 Hooks.on('controlToken', (object, controlled) => {
   //UI._backpackHotbar.actorId = object.data.actorId;
   //console.log(object);
+  //Factions.test();
 });
 Hooks.on('deleteItem', ([,,data]) => {
   //if(UI._backpackHotbar.actorId === data.actorId){
@@ -129,10 +140,9 @@ Hooks.on("deleteCombat", (combat, options, userId) => {
   console.log('COMBAT: Combat has ended')
   let sound = game.settings.get(namespace, 'combatFinishedSound')
   if (sound !== null){
-    CombatTracker.playSound(sound,0.8, true, false)
+    //CombatTracker.playSound(sound,0.8, true, false)
+    soundlab.play(sound, 0.4);
   };
-  //let sound = `https://za-foundry-vtt.s3.amazonaws.com/Audio/Sound_EFX/ui/ui_combat_success.ogg`
-  //CombatTracker.playSound(sound,0.8, true, false)
 });
 
 Hooks.on("deleteCombatant", (combatant, options, userId) => {
@@ -142,16 +152,17 @@ Hooks.on("deleteCombatant", (combatant, options, userId) => {
 
 /* ------------------ Token ------------------ */
 Hooks.on("hoverToken", (token, options, evt) => {
-  const elem = document.getElementById('board');
+  //const elem = document.getElementById('board');
 
-  let setting = game.settings.get(namespace, 'tooltips')
+  let setting = game.settings.get(namespace, 'tooltips');
+  let template = 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs';
   if (setting == true){
     if (options == false){
       ToolTip.delete('za-tooltip-default');
     }
 
     if(options == true){
-      ToolTip.create(token, 'board','za-tooltip-default', 'modules/zandora-lib/templates/ui/ui-token-tooltip.hbs');
+      ToolTip.create(token, 'board','za-tooltip-default', template);
     }    
   }
 });
@@ -159,6 +170,39 @@ Hooks.on("hoverToken", (token, options, evt) => {
 /* ------------------ ActionBar Hooks ------------------ */
 Hooks.on("actionHover", (macro) => {
   console.log('Our first hook')
+});
+
+/* ------------------ UI Functions ------------------ */
+Hooks.on("preUpdateWall", (document, obj, render, type) => {
+  const _isDoor = document.data.door;
+  const _doorOpen = game.settings.get(namespace, 'doorOpenSound');
+  const _doorClose = game.settings.get(namespace, 'doorCloseSound');
+  const _doorUnlocked = game.settings.get(namespace, 'doorUnlockSound');
+  
+  // Check state of door, states are 0 "closed", 1 "open", 2 "locked"
+  const _doorstate = canvas.walls.doors.filter(d => d.document.data._id === document.data._id);
+  const currentState = _doorstate.map(d => ({_id: d.id, ds: d.data.ds}));
+
+  if (_isDoor === 1){
+    if (obj.ds === 0){
+      if (currentState[0].ds === 2){
+        // Doo something if player unlocks door
+        console.log('zandora-lib: Door Unlocked');
+        soundlab.play(_doorUnlocked);
+      } else{
+        console.log('zandora-lib: Door Closed');
+        soundlab.play(_doorClose);        
+      }
+    };
+    if (obj.ds === 1){
+      console.log('zandora-lib: Door Open');
+      soundlab.play(_doorOpen);
+    };
+    if (obj.ds === 2){
+      console.log('zandora-lib: Door is Locked');
+    }
+  };
+  
 });
 // if I need to do something as soon as the module is ready
 //Hooks.on('zandoraLibReady', (api) => {

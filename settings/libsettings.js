@@ -39,7 +39,43 @@ const settings = [
       type: String,
       filePicker: true,
     }
-  },  
+  },
+   {
+    name:'doorOpenSound',
+    config:{
+      name: "zandora-lib.soundlab.door-open.sound",
+      hint: "zandora-lib.soundlab.door-open.sound-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: String,
+      filePicker: true,
+    }
+  },
+  {
+    name:'doorCloseSound',
+    config:{
+      name: "zandora-lib.soundlab.door-close.sound",
+      hint: "zandora-lib.soundlab.door-close.sound-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: String,
+      filePicker: true,
+    }
+  },
+  {
+    name:'doorUnlockSound',
+    config:{
+      name: "zandora-lib.soundlab.door-unlock.sound",
+      hint: "zandora-lib.soundlab.door-unlock.sound-hint",
+      scope: "world",
+      config: true,
+      default: false,
+      type: String,
+      filePicker: true,
+    }
+  },          
   {
     name:'tooltips',
     config:{

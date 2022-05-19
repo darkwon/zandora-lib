@@ -14,9 +14,10 @@ export const preloadZandora5eHandlebarsTemplates = async function() {
 
       // UI Templates
       "modules/zandora-lib/templates/ui/ui-token-tooltip.hbs",
+      "modules/zandora-lib/templates/ui/ui-bag-bar.hbs",
 
       // Item Sheets
-      //"modules/zandora-suite/templates/ui/ui-item-bag-sheet.html",
+      "modules/zandora-lib/templates/item/item-sheet.hbs",
     ];
   
     // Load the template parts

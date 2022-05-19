@@ -1,4 +1,6 @@
 //import {BackpackHotbar} from "./components/BackpackHotbar/BackpackHotbar.js";
+//import {bagbar} from "./components/bagbar/bagbar.js";
+import bag from "./components/bag/ZandoraLibBagSheet.js";
 
 class UI {
 
@@ -7,7 +9,8 @@ class UI {
   _settings;
 
   /**@var {BackpackHotbar}*/
-  _backpackHotbar;
+  //_backpackHotbar;
+  _utilityBar;
 
   /**
    * @param {Object<Module>} module
@@ -19,6 +22,7 @@ class UI {
     this._ui = ui;
     this._module = module;
     this._settings = settings;
+    bag.init();
   }
   setup = () => {
     console.log('UI Setup');
@@ -26,6 +30,9 @@ class UI {
   ready = () => {
     //this._backpackHotbar = new BackpackHotbar();
     //this._backpackHotbar.init();
+    //this._utilityBar = new bagbar();
+    //this._utilityBar.init();
+    
     console.debug('UI Ready!');
   }
 }

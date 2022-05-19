@@ -8,14 +8,11 @@ export default class CombatTracker extends Combat{
         game.combat.data.combatants.forEach(combatant => {
         const stats = actorStats._getActor(combatant.data.actorId);
         const init = stats.map(i => i.init);
-        //const initAdv = stats.map(i => i.initAdv);
         const size = CombatTracker.initSizeMod(stats.map(i => i.size));
         var rollFormula = '1d20+' + init + '+' + size;
 
-        //game.combat.rollInitiative([combatant.data._id], {formula: '1d20+'+init+'+'+size,updateTurn: false, messageOptions: {rollMode: "gmroll", create: "false"}});
         game.combat.rollInitiative([combatant.data._id], {formula: rollFormula, updateTurn: false, messageOptions: {rollMode: "gmroll", create: "false"}});
         });
-        //await new Promise(r => setTimeout(r, 1000));
         setTimeout(function(){
             if (game.combat.turn != 0){
                 CombatTracker.announceRound();
@@ -25,10 +22,13 @@ export default class CombatTracker extends Combat{
                 CombatTracker.announceRound();
             }
         }, 500);
-
-        //this.announceRound();
     } 
 
+    /**
+     * 
+     * @param {String} combatant - Get the size category of the combatant
+     * @returns - Returns Initiative modifier by size category.
+     */
     static initSizeMod(combatant){
         if (combatant == 'tiny'){
             return 5;
@@ -54,14 +54,17 @@ export default class CombatTracker extends Combat{
         }
     };
 
+    /**
+     * Announce the current round to chat
+     */
     static announceRound(){
-        // Announces the current round to chat
         let messageContent = `<hr><div style="color: black; font-size: 1.75em; font-weight: bold;">ROUND ${game.combat.round}</div><hr>`
         ChatMessage.create({content: messageContent});
     }
 
-    // Fixes the updateTurn() bug within the Foundry Combat class
-    // This can be removed when the bug is fixed.
+    /**
+     * Reset Combat turn to 0, fixing Foundry rollInitiative() bug
+     */
     static combatUpdate(){
         console.log('za-lib: Preparing to update combatant')
         try {
@@ -73,8 +76,11 @@ export default class CombatTracker extends Combat{
         }
 
     }
+
+    /**
+     * Combat Tracker UI popout from sidebar
+     */
     static popoutCombat(){
-        // If setting is enabled, automatically pops the combat tab out
         ui.combat.createPopout().render(true);
     }
     

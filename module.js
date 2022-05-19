@@ -72,6 +72,19 @@ class Module {
       return item.type === 'backpack';
     });
   }
+  /**
+   * 
+   * @param {String} itemName - get an item by name on controlled token.
+   * @returns 
+   */
+  getItemName = (itemName) => {
+    let actor;
+    if ( speaker.token ) actor = game.actors.tokens[speaker.token];
+    if ( !actor ) actor = game.actors.get(speaker.actor);
+    const items = actor ? actor.items.filter(i => i.name === itemName) : [];
+    const item = items[0];
+    return item
+  }
 }
 
 export default new Module();

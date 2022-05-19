@@ -1,0 +1,73 @@
+{
+    "campaign":"Zandora Legends",
+    "version":"1.0",
+    "renown" : [
+        {
+            "rank" : "1",
+            "value" : "1",
+            "rank-name" : "Neutral"
+        },
+        {
+            "rank" : "2",
+            "value" : "3",
+            "rank-name" : "Friendly"
+        },
+        {
+            "rank" : "3",
+            "value" : "10",
+            "rank-name" : "Honored"
+        },
+        {
+            "rank" : "4",
+            "value" : "25",
+            "rank-name" : "Revered"
+        },
+        {
+            "rank" : "5",
+            "value" : "50",
+            "rank-name" : "Exalted"
+        }                                     
+    ],
+    "factions" : [
+        {
+            "id":"",
+            "name" : "Brothers of the Forge",
+            "image" : "something",
+            "description" : "something",
+            "motto" : "something",
+            "beliefs" : "something",
+            "goals" : "something",
+            "renown" : [
+                {
+                    "rank" : "1",
+                    "rank-name" : "Neutral",
+                    "rewards" : "something"
+                },
+                {
+                    "rank" : "2",
+                    "rank-name" : "Friendly",
+                    "rewards" : "something"
+                },
+                {
+                    "rank" : "3",
+                    "rank-name" : "Honored",
+                    "rewards" : "something"
+                },
+                {
+                    "rank" : "4",
+                    "rank-name" : "Revered",
+                    "rewards" : "something"
+                },
+                {
+                    "rank" : "5",
+                    "rank-name" : "Exalted",
+                    "rewards" : "something"
+                }                                                
+            ],
+            "reference" : {
+                "id" : "something",
+                "type" : "something"
+            }
+        }
+    ]
+}
