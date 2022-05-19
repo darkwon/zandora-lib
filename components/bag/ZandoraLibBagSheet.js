@@ -20,5 +20,5 @@ export default class ZandoraLibBagSheet extends ItemSheet5e{
 Items.registerSheet("dnd5e", ZandoraLibBagSheet, { makeDefault: false, label:"Zandora Bag Sheet" });
 
 Hooks.on("renderZandoraLibBagSheet", (app, html, data) => {
-    addEditorHeadline(app, html, data);
+    //addEditorHeadline(app, html, data);
 });
