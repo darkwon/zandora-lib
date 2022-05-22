@@ -1,0 +1,54 @@
+
+/* -- Default Tooltip style if none is selected--*/
+.za-tooltip-default{
+	position: absolute;
+	max-width: 325px;
+    max-height:600px;
+	padding: 10px;
+	box-sizing: border-box;
+    border-radius: 10px;
+    border: 5px solid #0b10b7;
+	color: #000;
+	/*background-color: rgba(0, 0, 0);*/
+    background-color: #d9d9cf;
+	overflow: hidden;
+    z-index: 200;
+}
+
+.za-tooltip-default  article{
+    border-radius: 4px;
+    border-color: black;
+}
+
+.za-tooltip-default h2{
+    border: #0b10b7;
+    color:#0b10b7;
+    border-bottom-style: double;
+    margin-bottom:0;
+}
+
+.za-tooltip-default span{
+    word-wrap: break-word;
+}
+
+/* -- Default Bagbar style if none is selected--*/
+.za-utilityBar-default{
+    position: relative;
+    justify-content: space-between;
+    float:right;
+    height: var(--hotbar-height);
+    pointer-events: none;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+    z-index: calc(var(--z-index-ui) + 10);
+}
+.za-utilityBar-default li{
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    list-style-type: none;
+}

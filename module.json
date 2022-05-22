@@ -9,16 +9,21 @@
       "url": "https://www.patreon.com/ZandoraLegends"
     }
   ],
+  "url": "https://github.com/darkwon/zandora-lib",
+  "readme": "https://github.com/darkwon/zandora-lib/blob/main/README.md",
+  "bugs": "https://github.com/darkwon/zandora-lib/issues",
+  "changelog": "https://github.com/darkwon/zandora-lib/blob/main/changelog.md",
+  "flags": {},
   "version": "1.0.0",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9.249",
-  "system": "dnd5e",
-  "url": "https://github.com/darkwon/zandora-lib",
-  "manifest": "https://raw.githubusercontent.com/darkwon/zandora-lib/main/module.json",
-  "download": "https://github.com/darkwon/zandora-lib/releases/download/v1.0.0/v1.0.0.zip",
-  "readme": "https://github.com/darkwon/zandora-lib/blob/main/README.md",
-  "changelog": "https://github.com/darkwon/zandora-lib/blob/main/changelog.md",
-  "bugs": "https://github.com/darkwon/zandora-lib/issues",
+  "scripts": [],
+  "esmodules": [
+    "main.js"
+  ],
+  "styles": [
+    "./css/zandora-lib.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -26,10 +31,15 @@
       "path": "lang/en.json"
     }
   ],
-  "esmodules": ["./scripts/zandora-lib.js"],
-
-  "styles": [
-    "./css/zandora-lib.css"
+  "packs": [],
+  "system": [
+    "dnd5e"
   ],
-  "packs":[]
+  "dependencies": [],
+  "socket": true,
+  "manifest": "https://raw.githubusercontent.com/darkwon/zandora-lib/main/module.json",
+  "download": "https://github.com/darkwon/zandora-lib/releases/download/v1.0.0/v1.0.0.zip",
+  "protected": false,
+  "coreTranslation": false,
+  "library": false
 }

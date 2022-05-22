@@ -18,7 +18,31 @@
         "combat" : {
             "initiative" : {
                 "speed-init": "Speed Factor Initiative",
-                "speed-hint": "Enables speed factor initiative"
+                "speed-hint": "Enables speed factor initiative which can be found in the DMG p.271"
+            },
+            "win" : {
+                "sound" : "Sound: Combat Over",
+                "sound-hint" : "Play this sound when combat has been completed, leave blank to disable sound"
+            }
+        },
+        "soundlab" : {
+            "door-open": {
+                "sound":"Sound: Door Open",
+                "sound-hint":"Pick a default sound to play when a door opens"
+            },
+            "door-close": {
+                "sound":"Sound: Door Close",
+                "sound-hint":"Pick a default sound to play when a door closes"
+            },
+            "door-unlock": {
+                "sound":"Sound: Door Unlock",
+                "sound-hint":"Pick a default sound to play when a door unlocks"
+            }            
+        },
+        "ui" : {
+            "tooltips" : {
+                "tooltip-name" : "Tooltips",
+                "tooltip-hint" : "Enables tooltips throughout the UI"
             }
         }
     }

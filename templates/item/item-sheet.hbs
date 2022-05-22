@@ -1,0 +1,43 @@
+<form>
+    {{!-- Item Sheet Header --}}
+    <header class="sheet-header flexrow">
+        <img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'DND5E.ItemName' }}"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{itemType}}</h4>
+                <span class="item-status">{{itemStatus}}</span>
+            </div>
+
+            <ul class="summary flexrow">
+                <li>
+                    {{lookup config.equipmentTypes data.armor.type }}
+                </li>
+                <li>
+                    <select name="data.rarity">
+                        {{selectOptions config.itemRarity selected=data.rarity blank="&nbsp;"}}
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'DND5E.Source' }}"/>
+                </li>
+            </ul>
+        </div>
+    </header>
+    {{!-- Item Sheet Navigation --}}
+    <nav></nav>
+    {{!-- Item Sheet Body --}}
+    <section class="sheet-body">
+        <ol style="list-style-type: none;">
+            <li>
+                <div class="item-image" tabindex="0" role="button" aria-label="{{item.name}}" style="background-image: url('https://via.placeholder.com/50');width:50px;height:50px;"></div>
+                <h4>Item Name</h4>
+            </li>
+        </ol>
+    </section>
+    <button type="submit" name="submit" style="display:none;">{{localize 'Submit'}}</button>
+</form>
